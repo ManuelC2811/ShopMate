@@ -47,12 +47,17 @@ class ShoppingListDoubly(ShoppingListInterface):
   
     while current:
       if current.data.nombre == nombre_producto:
-        nuevo_precio = float(input(f"Nuevo precio para {nombre_producto}: "))
-        nueva_cantidad = int(input(f"Nueva cantidad para {nombre_producto}: "))
-        nueva_unidad = input(f"Nueva unidad para {nombre_producto}: ")
-        current.data.precio = nuevo_precio
-        current.data.cantidad = nueva_cantidad
-        current.data.unidad = nueva_unidad
+        print("1. Precio\n2. Cantidad\n3. Unidad\n")
+        opcion = input("Ingrese el indice del atributo que desea modificar:")
+        if opcion == "1":         
+          nuevo_precio = float(input(f"Nuevo precio para {nombre_producto}: "))
+          current.data.precio = nuevo_precio
+        elif opcion =="2":
+          nueva_cantidad = int(input(f"Nueva cantidad para {nombre_producto}: "))
+          current.data.cantidad = nueva_cantidad
+        elif opcion =="3":
+          nueva_unidad = input(f"Nueva unidad para {nombre_producto}: ")
+          current.data.unidad = nueva_unidad
         return current.data
   
       current = current.next
@@ -99,9 +104,9 @@ class ShoppingListDoubly(ShoppingListInterface):
     return None
 
   def mostrar_lista(self):
-        print(f'\033[1mTu Lista de Compras:\033[0m {self.name}\n\033[1mProductos:\033[0m')
+        print(f'\033[1mProductos añadidos al carrito:\033[0m {self.name}\n\033[1mProductos:\033[0m')
         for producto in self.productos:
-            if not producto.comprado:
+            if producto.comprado:
                 print(f"{producto.cantidad} {producto.unidad} de {producto.nombre} | Precio: {producto.precio} c/u | Total: {producto.precio * producto.cantidad} c/u")
 
 
@@ -145,7 +150,8 @@ class ShoppingListDoubly(ShoppingListInterface):
     product_strings = [
         f"{producto.cantidad} {producto.unidad}s de {producto.nombre} | Precio: {producto.precio} c/u | Total: {producto.precio * producto.cantidad}"
         for producto in self.productos
-    ]
+        if not producto.comprado
+      ]
     product_list = "\n".join(product_strings)
     return f'\033[1mTu Lista de Compras:\033[0m {self.name}\n\033[1mProductos:\033[0m\n{product_list}'
 

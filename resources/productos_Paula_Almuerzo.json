@@ -1,0 +1,1 @@
+[{"nombre": "Leche", "precio": 6000, "unidad": "2", "cantidad": 2, "categoria": "Lacteos"}, {"nombre": "Pan", "precio": 700.0, "unidad": "unidad", "cantidad": 5, "categoria": "panaderia"}, {"nombre": "Chocolate", "precio": 2500, "unidad": "paquete", "cantidad": 3, "categoria": "panaderia"}]

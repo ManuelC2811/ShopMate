@@ -38,9 +38,7 @@ class ShoppingArray(ShoppingListInterface):
         indice_producto -= 1
         if 0 <= indice_producto < len(self.productos):
             self.productos.delete(indice_producto)
-            #removed = self.productos[indice_producto+1]
-            #print(f"Producto eliminado: {removed.nombre} - Precio: {removed.precio} - Cantidad: {removed.cantidad}")
-            #return removed
+
         else:
             print("Indice fuera de rango, ingrese un valor válido")
     except ValueError:

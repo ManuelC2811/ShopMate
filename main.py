@@ -1,5 +1,5 @@
 #from controller.ShoppingListController import ShoppingListController
-from controller.ArrayController import ShoppingListController
+from controller.ShoppingListController import ShoppingListController
 from controller.UserController import UserController
 from view.View import View
 

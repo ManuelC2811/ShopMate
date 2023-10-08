@@ -100,43 +100,46 @@ class ShoppingListController:
         self.display_shopping_lists()
         index = int(input("\nSeleccione una lista de compras: "))
         selected_list = self.shopping_lists[index - 1]
-        sc.listMenu()
-        op = int(input("\nSeleccione una opción: "))
-        print("")
-        if op == 1:
-          print(selected_list)
-        elif op == 2:
-          self.add_product_to_list(selected_list)
-          print("")
-          print(selected_list)
-          print("")
-        elif op == 3:
-          print(selected_list)
-          print("")
-          self.delete_product(selected_list)
-          print(selected_list)
-          print("")
-        elif op == 4:
-          print(selected_list)
-          print("")
-          self.update_product(selected_list)
-          print("")
-          print(selected_list)
-          print("")
-        elif op == 5:
-          print(selected_list)
-          print("")
-          self.mark_purchased(selected_list)
-        elif op == 6:
-          sc = View()
-          sc.filterMenu()
+        while True:
+          sc.listMenu()
           op = int(input("\nSeleccione una opción: "))
           print("")
           if op == 1:
-            self.filter_cat(selected_list)
-        elif op == 7:
-          self.find_product(selected_list)
-          print("")
+            print(selected_list)
+          elif op == 2:
+            self.add_product_to_list(selected_list)
+            print("")
+            print(selected_list)
+            print("")
+          elif op == 3:
+            print(selected_list)
+            print("")
+            self.delete_product(selected_list)
+            print(selected_list)
+            print("")
+          elif op == 4:
+            print(selected_list)
+            print("")
+            self.update_product(selected_list)
+            print("")
+            print(selected_list)
+            print("")
+          elif op == 5:
+            print(selected_list)
+            print("")
+            self.mark_purchased(selected_list)
+          elif op == 6:
+            sc = View()
+            sc.filterMenu()
+            op = int(input("\nSeleccione una opción: "))
+            print("")
+            if op == 1:
+              self.filter_cat(selected_list)
+          elif op == 7:
+            self.find_product(selected_list)
+            print("")
+          elif op == 8:
+            break
       else:
         print("\n" + '\033[1m' + 'Gracias por usar ShopMate, Hasta luego! ' + '\033[0m')
         break
